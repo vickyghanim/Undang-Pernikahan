@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Undangan Pernikahan | Vigma & Aisra</title>
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Nunito:wght@300;400;600&family=Amiri&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      :root {
+        --bg: #020617;
+        --accent: #d4b16a;
+        --soft: #111827;
+        --text: #e5e7eb;
+        --muted: #9ca3af;
+      }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        font-family: Nunito, sans-serif;
+        background: radial-gradient(circle at top, #1e293b, #020617);
+        color: var(--text);
+        line-height: 1.7;
+        overflow-x: hidden;
+      }
+      html.lock,
+      body.lock {
+        overflow: hidden;
+      }
+
+      /* ===== STARS ===== */
+      .star {
+        position: fixed;
+        width: 2px;
+        height: 2px;
+        background: #fff;
+        opacity: 0.6;
+        animation: twinkle 4s infinite alternate;
+        z-index: 0;
+      }
+      @keyframes twinkle {
+        from {
+          opacity: 0.2;
+        }
+        to {
+          opacity: 0.8;
+        }
+      }
+
+      /* ===== BUNGA JATUH ===== */
+      .flower {
+        position: fixed;
+        top: -50px;
+        font-size: 18px;
+        opacity: 0.7;
+        animation: fall linear infinite;
+        z-index: 1;
+      }
+      @keyframes fall {
+        to {
+          transform: translateY(110vh) rotate(360deg);
+        }
+      }
+
+      /* ===== COVER ===== */
+      .cover {
+        position: fixed;
+        inset: 0;
+        background: #020617;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 10;
+      }
+      .cover-box {
+        padding: 56px 28px;
+        max-width: 420px;
+        width: 100%;
+        text-align: center;
+        border: 1px solid rgba(212, 177, 106, 0.25);
+        border-radius: 32px;
+        box-shadow: 0 40px 120px rgba(0, 0, 0, 0.9);
+      }
+      .cover-moon {
+        width: 140px;
+        height: 140px;
+        border-radius: 50%;
+        background: radial-gradient(circle, #fff, #d4b16a);
+        box-shadow: -26px 0 0 var(--bg), 0 0 25px rgba(212, 177, 106, 0.4);
+        margin: 0 auto 28px;
+        animation: float 6s infinite;
+      }
+      @keyframes float {
+        50% {
+          transform: translateY(-14px);
+        }
+      }
+      .basmallah {
+        font-family: Amiri;
+        font-size: 1.9rem;
+        color: var(--accent);
+        margin-bottom: 24px;
+      }
+      .gold-line {
+        width: 80px;
+        height: 2px;
+        background: var(--accent);
+        margin: 0 auto 22px;
+      }
+      .couple-name {
+        font-family: "Libre Baskerville";
+        letter-spacing: 2px;
+        margin-bottom: 10px;
+      }
+      .guest-text {
+        font-size: 0.85rem;
+        color: var(--muted);
+        margin-bottom: 28px;
+        white-space: pre-line;
+      }
+      .enter-btn {
+        padding: 10px 38px;
+        border-radius: 40px;
+        border: 1px solid var(--accent);
+        background: transparent;
+        color: var(--accent);
+        cursor: pointer;
+      }
+
+      /* ===== MAIN ===== */
+      main {
+        padding: 110px 16px 70px;
+      }
+      .page {
+        max-width: 900px;
+        margin: auto;
+        background: #020617;
+        border-radius: 30px;
+        padding: 44px 26px;
+        border: 1px solid rgba(212, 177, 106, 0.25);
+        box-shadow: 0 40px 120px rgba(0, 0, 0, 0.9);
+      }
+      .block {
+        text-align: center;
+        margin-bottom: 48px;
+      }
+      .block h2 {
+        font-family: "Libre Baskerville";
+        color: var(--accent);
+        margin-bottom: 14px;
+      }
+      .block p {
+        color: var(--muted);
+        font-size: 0.9rem;
+      }
+      .arabic {
+        font-family: Amiri;
+        font-size: 1.35rem;
+        margin-bottom: 12px;
+      }
+      .event {
+        background: var(--soft);
+        padding: 22px;
+        border-radius: 20px;
+      }
+
+      /* ===== PASANGAN ===== */
+      .couple-photo-wrap {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 22px;
+        margin-top: 24px;
+      }
+      @media (max-width: 600px) {
+        .couple-photo-wrap {
+          grid-template-columns: 1fr;
+        }
+      }
+      .photo-frame {
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        padding: 6px;
+        background: linear-gradient(135deg, var(--accent), #fff2c2);
+        margin: 0 auto 10px;
+      }
+      .photo-frame img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 50%;
+      }
+      .couple-photo h3 {
+        font-family: "Libre Baskerville";
+        color: var(--accent);
+        font-size: 1rem;
+      }
+
+      /* ===== COUNTDOWN ===== */
+      .countdown {
+        display: flex;
+        justify-content: center;
+        gap: 14px;
+        margin-top: 18px;
+        flex-wrap: wrap;
+      }
+      .time-box {
+        background: var(--soft);
+        padding: 14px 16px;
+        border-radius: 16px;
+        min-width: 70px;
+      }
+      .time-box span {
+        display: block;
+        font-size: 1.2rem;
+        color: var(--accent);
+        font-weight: bold;
+      }
+
+      /* ===== GALERI ===== */
+      .gallery-btn {
+        margin-top: 18px;
+        padding: 10px 34px;
+        border-radius: 40px;
+        border: 1px solid var(--accent);
+        background: transparent;
+        color: var(--accent);
+        cursor: pointer;
+      }
+      .gallery-wrap {
+        display: none;
+        margin-top: 26px;
+      }
+      .gallery-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+      }
+      .gallery-grid img {
+        width: 100%;
+        aspect-ratio: 1/1;
+        object-fit: cover;
+        border-radius: 16px;
+        border: 1px solid rgba(212, 177, 106, 0.25);
+        cursor: pointer;
+      }
+
+      /* POPUP */
+      .photo-popup {
+        position: fixed;
+        inset: 0;
+        background: rgba(2, 6, 23, 0.92);
+        display: none;
+        align-items: center;
+        justify-content: center;
+        z-index: 999;
+      }
+      .photo-popup img {
+        width: 90%;
+        max-width: 420px;
+        border-radius: 22px;
+      }
+      .popup-close {
+        position: absolute;
+        top: 22px;
+        right: 22px;
+        font-size: 26px;
+        color: var(--accent);
+      }
+
+      /* MUSIC */
+      .music-toggle {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        width: 46px;
+        height: 46px;
+        border-radius: 50%;
+        background: rgba(2, 6, 23, 0.8);
+        border: 1px solid var(--accent);
+        color: var(--accent);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        z-index: 50;
+      }
+      .music-toggle.off {
+        opacity: 0.5;
+      }
+    </style>
+  </head>
+
+  <body class="lock">
+    <script>
+      /* stars */
+      for (let i = 0; i < 90; i++) {
+        let s = document.createElement("div");
+        s.className = "star";
+        s.style.left = Math.random() * 100 + "vw";
+        s.style.top = Math.random() * 100 + "vh";
+        document.body.appendChild(s);
+      }
+
+      /* bunga */
+      setInterval(() => {
+        const f = document.createElement("div");
+        f.className = "flower";
+        f.innerText = "🌸";
+        f.style.left = Math.random() * 100 + "vw";
+        f.style.animationDuration = 5 + Math.random() * 5 + "s";
+        document.body.appendChild(f);
+        setTimeout(() => f.remove(), 10000);
+      }, 500);
+    </script>
+
+    <div class="cover" id="cover">
+      <div class="cover-box">
+        <div class="cover-moon"></div>
+        <div class="basmallah">بِسْمِ ٱللَّٰهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ</div>
+        <div class="gold-line"></div>
+        <h2 class="couple-name">KIGAMA & AIRAHMA</h2>
+        <p id="guest" class="guest-text"></p>
+        <button id="openBtn" class="enter-btn">Masuk</button>
+      </div>
+    </div>
+
+    <main>
+      <div class="page">
+        <!-- AYAT -->
+        <div class="block">
+          <div class="arabic">
+            يَا أَيُّهَا النَّاسُ اتَّقُوا رَبَّكُمُ الَّذِي خَلَقَكُم مِّن
+            نَّفْسٍ وَاحِدَةٍ وَخَلَقَ مِنْهَا زَوْجَهَا
+          </div>
+          <p>
+            Wahai manusia! Bertakwalah kepada Tuhanmu yang telah menciptakan
+            kamu dari diri yang satu, dan darinya Allah menciptakan pasangannya,
+            dan dari keduanya Allah memperkembangbiakkan laki-laki dan perempuan
+            yang banyak.
+            <br /><br /><em>(QS. An-Nisa : 1)</em>
+          </p>
+        </div>
+
+        <!-- WAKTU -->
+        <div class="block">
+          <h2>Waktu & Tanggal</h2>
+          <p>
+            Rabu, 22 Januari 2031 <br />
+            الأربعاء، 22 يناير 2031<br />Pukul 08.00 WIB – Selesai
+          </p>
+
+          <div class="countdown">
+            <div class="time-box"><span id="d">0</span>Hari</div>
+            <div class="time-box"><span id="h">0</span>Jam</div>
+            <div class="time-box"><span id="m">0</span>Menit</div>
+            <div class="time-box"><span id="s">0</span>Detik</div>
+          </div>
+        </div>
+
+        <!-- DOA -->
+        <div class="block">
+          <div class="arabic">
+            بَارَكَ اللّٰهُ لَكُمَا وَبَارَكَ عَلَيْكُمَا وَجَمَعَ بَيْنَكُمَا
+            فِي خَيْرٍ
+          </div>
+          <p>
+            Semoga Allah memberkahi kalian berdua, memberkahi pernikahan kalian,
+            dan mengumpulkan kalian berdua dalam kebaikan.
+          </p>
+        </div>
+
+        <!-- PASANGAN -->
+        <div class="block">
+          <h2>Pasangan</h2>
+          <div class="couple-photo-wrap">
+            <div class="couple-photo">
+              <div class="photo-frame"><img src="Pengantin_cowo.png" /></div>
+              <h3>Kigama</h3>
+            </div>
+            <div class="couple-photo">
+              <div class="photo-frame"><img src="pengantin_cw.png" /></div>
+              <h3>Airahma</h3>
+            </div>
+          </div>
+        </div>
+
+        <!-- GALERI -->
+        <div class="block">
+          <button class="gallery-btn" onclick="toggleGallery()">
+            Lihat Galeri
+          </button>
+          <div class="gallery-wrap" id="galleryWrap">
+            <div class="gallery-grid">
+              <img src="galeri1.png" onclick="openPhoto(this.src)" />
+              <img src="galeri2.png" onclick="openPhoto(this.src)" />
+              <img src="galeri3.png" onclick="openPhoto(this.src)" />
+              <img src="galeri4.png" onclick="openPhoto(this.src)" />
+              <img src="galeri5.png" onclick="openPhoto(this.src)" />
+              <img src="galeri6.png" onclick="openPhoto(this.src)" />
+            </div>
+            <button class="gallery-btn" onclick="toggleGallery()">
+              Tutup Galeri
+            </button>
+          </div>
+        </div>
+
+        <footer style="text-align: center; color: var(--muted)">
+          Wassalamu’alaikum Warahmatullahi Wabarakatuh<br />
+          <strong style="color: var(--accent)">Kigama & Airahma</strong>
+        </footer>
+      </div>
+    </main>
+
+    <div class="photo-popup" id="photoPopup" onclick="closePhoto()">
+      <span class="popup-close">✕</span>
+      <img id="popupImg" />
+    </div>
+
+    <div class="music-toggle" id="musicToggle">♪</div>
+    <audio id="bgm" loop><source src="undanagan_pernikahan.mp3" /></audio>
+
+    <script>
+      const cover = document.getElementById("cover");
+      const openBtn = document.getElementById("openBtn");
+      const music = document.getElementById("bgm");
+
+      openBtn.onclick = () => {
+        cover.style.opacity = 0;
+        music.volume = 0;
+        music.play().catch(() => {});
+        let v = 0;
+        let fade = setInterval(() => {
+          if (v < 0.8) {
+            v += 0.02;
+            music.volume = v;
+          } else clearInterval(fade);
+        }, 100);
+        setTimeout(() => {
+          cover.style.display = "none";
+          document.body.classList.remove("lock");
+        }, 1200);
+      };
+
+      /* countdown */
+      const target = new Date("2031-01-20T08:00:00").getTime();
+      setInterval(() => {
+        const now = new Date().getTime();
+        const diff = target - now;
+        if (diff < 0) return;
+        d.innerText = Math.floor(diff / 86400000);
+        h.innerText = Math.floor((diff % 86400000) / 3600000);
+        m.innerText = Math.floor((diff % 3600000) / 60000);
+        s.innerText = Math.floor((diff % 60000) / 1000);
+      }, 1000);
+
+      function toggleGallery() {
+        const g = document.getElementById("galleryWrap");
+        g.style.display = g.style.display === "block" ? "none" : "block";
+      }
+      function openPhoto(src) {
+        popupImg.src = src;
+        photoPopup.style.display = "flex";
+        document.body.classList.add("lock");
+      }
+      function closePhoto() {
+        photoPopup.style.display = "none";
+        document.body.classList.remove("lock");
+      }
+
+      const musicToggle = document.getElementById("musicToggle");
+      let musicOn = true;
+      musicToggle.onclick = () => {
+        musicOn = !musicOn;
+        if (musicOn) {
+          music.play();
+          musicToggle.innerText = "♪";
+          musicToggle.classList.remove("off");
+        } else {
+          music.pause();
+          musicToggle.innerText = "🔇";
+          musicToggle.classList.add("off");
+        }
+      };
+
+      const q = new URLSearchParams(location.search).get("to");
+      if (q) guest.innerText = "KEPADA YTH:\n" + q.toUpperCase();
+    </script>
+  </body>
+</html>
